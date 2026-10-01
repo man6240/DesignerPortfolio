@@ -5,3 +5,4 @@ dist-single
 /*.png
 dist-ssr
 dist-preview
+.wrangler

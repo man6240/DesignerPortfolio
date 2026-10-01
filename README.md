@@ -43,8 +43,13 @@ real screenshots can replace them the same way.
   The choice is remembered, so a returning visitor lands on their language.
 - `public/_redirects` sends the old `/en/…` addresses to `/`.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers or Pages)
 
+Workers (Workers & Pages → Create → Import a repository): build command `npm run build`,
+deploy command `npx wrangler deploy`. `wrangler.jsonc` uploads `dist/` as static assets; its `name`
+must match the Worker's name in the dashboard.
+
+Pages: 
 Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → this repo.
 Framework preset: none. Build command `npm run build`. Output directory `dist`. Node 20 or newer.
 Then Custom domains → add `www.rafaelvitriago.eu` and `rafaelvitriago.eu`.
