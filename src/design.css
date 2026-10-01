@@ -308,3 +308,21 @@
 @media (max-width: 1100px) {
   :is(.story[data-mode='flow'], .story[data-mode='still']) :is(.st-exp, .st-reviews) { grid-template-columns: 1fr; }
 }
+.rail-track { align-items: flex-start; }
+
+/* flowing chapters (phones, short windows, reduced motion): give single-column copy a readable measure */
+:is(.story[data-mode='flow'], .story[data-mode='still'], html:not(.js) .story) .ch-copy:not(.wide) { max-width: calc(760px + 2 * var(--pad)); }
+@media (min-width: 1100px) {
+  /* about: the copy and the map side by side instead of a narrow column with the map below */
+  :is(.story[data-mode='flow'], .story[data-mode='still']) .ch-about { flex-direction: row !important; align-items: center; gap: 2vw; padding-inline: var(--pad); }
+  :is(.story[data-mode='flow'], .story[data-mode='still']) .ch-about .ch-copy { flex: 1 1 52%; max-width: 780px; padding-inline: 0; }
+  :is(.story[data-mode='flow'], .story[data-mode='still']) .ch-about .art { flex: 1 1 48%; order: 2; margin: 0; opacity: 1; aspect-ratio: 2 / 1; }
+}
+
+/* YouTube Shorts: vertical cards, four across */
+.yt-grid.shorts { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(16px, 2vw, 24px); }
+.shorts .yt-frame { aspect-ratio: 9 / 16; border-radius: 24px; background: radial-gradient(80% 60% at 50% 40%, #2a3c5c, #0b1828); }
+.shorts .yt-cover img { object-fit: cover; }
+.yt figcaption a { color: #f5f5f7; }
+.yt figcaption a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .yt-grid.shorts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }

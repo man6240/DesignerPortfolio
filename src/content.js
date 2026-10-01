@@ -12,9 +12,7 @@
 //   colors:  { base, deep, glow } for the panel. words: three big words. tags: three callouts.
 //   link:    { label, href } shown as a button and in the project sheet.
 //
-// SOCIAL — the social media rail. Replace the low-res placeholders in src/assets/design/
-// (post-videojuegos, post-aniversario, post-bautismos, post-estudio-verano) with the full-size
-// exports under the same name and nothing else needs to change.
+// SOCIAL — the social media rail, images in src/assets/design/. `ratio` overrides the default 16:9 card.
 //
 // VIDEOS — YouTube IDs (the part after watch?v=) from the channel. Each one becomes a card
 // that loads the player only when clicked.
@@ -279,13 +277,18 @@ export const SOCIAL = [
   { id: 'aniversario', src: img('post-aniversario'), title: T('5th anniversary', '5º aniversario'), note: T('Torn-paper photo band, script and gold', 'Foto en papel rasgado, caligrafía y dorado'), color: '#c9a45c' },
   { id: 'videojuegos', src: img('post-videojuegos'), title: T('Video game night', 'Noche de videojuegos'), note: T('Pixel-art type for ages 9 to 15', 'Tipografía pixel art para 9 a 15 años'), color: '#7b3fe4' },
   { id: 'bautismos', src: img('post-bautismos'), title: T('Baptism Sunday', 'Domingo de bautismos'), note: T('Script over open water', 'Caligrafía sobre el mar'), color: '#2f8fb0' },
-  { id: 'verano', src: img('post-estudio-verano'), title: T('Combined Bible study', 'Estudio bíblico combinado'), note: T('Bilingual summer schedule', 'Horario de verano bilingüe'), color: '#7a6be0' },
+  { id: 'verano', ratio: '1587 / 1123', src: img('post-estudio-verano'), title: T('Combined Bible study', 'Estudio bíblico combinado'), note: T('Bilingual summer schedule', 'Horario de verano bilingüe'), color: '#7a6be0' },
 ];
 
 export const VIDEO = {
   channel: 'https://www.youtube.com/@FlagFiestaGame',
-  // Add YouTube video IDs here, e.g. { id: 'dQw4w9WgXcQ', title: T('Trailer', 'Tráiler') }
-  youtube: [],
+  // YouTube Shorts from the channel: the ID is the part after /shorts/. Each card loads YouTube only when clicked.
+  youtube: [
+    { id: 'vchzq_PEbFw', title: T('Flag Fiesta · Short 1', 'Flag Fiesta · Short 1') },
+    { id: 'zc_CBRlsoTg', title: T('Flag Fiesta · Short 2', 'Flag Fiesta · Short 2') },
+    { id: 'uRi2bknQWWI', title: T('Flag Fiesta · Short 3', 'Flag Fiesta · Short 3') },
+    { id: 'P3aVWynpTPU', title: T('Flag Fiesta · Short 4', 'Flag Fiesta · Short 4') },
+  ],
 };
 
 // Hero: the display and the phone each rotate through work, offset so only one changes at a time.

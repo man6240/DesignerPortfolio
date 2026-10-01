@@ -23,19 +23,18 @@ their cues from the TipApp prototype; the web scene borrows the Ryan Family site
    `split` / `stack` (the game scenes). Clicking opens the gallery (`ProjectSheet.jsx`).
 3. **Social** (`Social.jsx`): a draggable rail of posts (`SOCIAL`).
 4. **Titan** (`Titan.jsx`): "Design / Diseño" from edge to edge with three pieces floating in front.
-5. **Video** (`Video.jsx`): the Flag Fiesta reel and the YouTube channel. Add video IDs to `VIDEO.youtube`
+5. **Video** (`Video.jsx`): the Flag Fiesta launch film (`public/video/`) and the YouTube channel. Add video IDs to `VIDEO.youtube`
    and each becomes a card that loads YouTube only when clicked.
-6. **Story** (`Story.jsx`): pinned chapters — the four services, experience, reviews, about, contact.
+6. **Story** (`Story.jsx`): pinned chapters — experience, reviews, about, contact.
 
 ## Edit content
 
 Everything a visitor reads is in `src/content.js`. Bilingual strings are written `T('English', 'Español')`.
 Images live in `src/assets/design/` (design work) and `src/assets/shots/` (game screenshots).
 
-**To replace a placeholder image**, export the full-size piece and save it over the file with the same name.
-These four were cropped from a screenshot of the old site and are low resolution:
-`post-videojuegos.webp`, `post-aniversario.webp`, `post-bautismos.webp`, `post-estudio-verano.webp`.
-The TipApp images (`tipapp-*.webp`) are captures of reconstructed screens; real screenshots can replace them.
+**To replace an image**, export the new version and save it over the file with the same name.
+Apart from `tipapp-landing.webp`, the TipApp images (`tipapp-*.webp`) are captures of reconstructed screens;
+real screenshots can replace them the same way.
 
 ## Languages
 

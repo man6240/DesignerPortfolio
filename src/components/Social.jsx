@@ -40,7 +40,7 @@ export default function Social() {
           {SOCIAL.map((s, i) => (
             <li key={s.id} className="post reveal" style={{ '--c': s.color }}>
               <figure>
-                <div className="post-img"><img src={s.src} alt={`${s.title}: ${s.note}`} loading="lazy" decoding="async" draggable="false" /></div>
+                <div className="post-img" style={s.ratio ? { aspectRatio: s.ratio } : undefined}><img src={s.src} alt={`${s.title}: ${s.note}`} loading="lazy" decoding="async" draggable="false" /></div>
                 <figcaption>
                   <span className="post-n">{String(i + 1).padStart(2, '0')}</span>
                   <strong>{s.title}</strong>

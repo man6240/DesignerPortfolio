@@ -15,12 +15,12 @@ function YouTubeCard({ v, label }) {
           <iframe src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`} title={v.title} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen />
         ) : (
           <button className="yt-cover" onClick={() => setOn(true)} aria-label={`${label}: ${v.title}`}>
-            <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" />
+            <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} />
             <span className="yt-play" aria-hidden="true" />
           </button>
         )}
       </div>
-      <figcaption>{v.title}</figcaption>
+      <figcaption><a href={`https://www.youtube.com/shorts/${v.id}`} target="_blank" rel="noopener">{v.title} ↗</a></figcaption>
     </figure>
   );
 }
@@ -72,7 +72,7 @@ export default function Video() {
         </div>
 
         {VIDEO.youtube.length > 0 && (
-          <div className="yt-grid">
+          <div className="yt-grid shorts">
             {VIDEO.youtube.map((v) => <YouTubeCard key={v.id} v={v} label={UI.video.play} />)}
           </div>
         )}
