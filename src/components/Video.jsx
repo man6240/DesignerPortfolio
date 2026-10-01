@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useContent } from '../i18n.jsx';
 import { ArrowUpRight } from './Icons.jsx';
-import poster from '../assets/shots/flag-0.jpg';
+import poster from '../assets/design/launch-poster.jpg';
 
-/* Video editing: the Flag Fiesta reel plays in a phone-shaped frame while it's on screen, next to
+/* Video editing: the Flag Fiesta launch film plays in a phone-shaped frame while it's on screen, next to
    the YouTube channel. Any IDs listed in VIDEO.youtube appear as cards that only load YouTube
    when clicked. */
 function YouTubeCard({ v, label }) {
@@ -53,8 +53,7 @@ export default function Video() {
             <div className="reel-stage">
               <div className="reel-phone">
                 <video ref={vid} muted loop playsInline preload="none" poster={poster} controls aria-label={UI.video.reel}>
-                  <source src={`${import.meta.env.BASE_URL}hero/flag-fiesta.mp4`} type="video/mp4" />
-                  <source src={`${import.meta.env.BASE_URL}hero/flag-fiesta.webm`} type="video/webm" />
+                  <source src={`${import.meta.env.BASE_URL}video/flag-fiesta-launch.mp4`} type="video/mp4" />
                 </video>
               </div>
             </div>

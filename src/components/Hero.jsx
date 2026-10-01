@@ -84,7 +84,7 @@ export default function Hero({ onOpen }) {
 
   const mon = MONITOR[m], ph = PHONE[p];
   return (
-    <section className="hero hx" id="top" data-tone="dark" ref={root} style={{ '--glow': byId[mon.id]?.palette[0] || '#e0508a' }}>
+    <section className="hero hx" id="top" data-tone="light" ref={root} style={{ '--glow': byId[mon.id]?.palette[0] || '#e0508a' }}>
       <div className="hx-stage">
         <div className="hx-art">
           <h1 className="hx-name">

@@ -16,7 +16,7 @@ export function PhoneFrame({ src, alt = '', children, className = '' }) {
 export default function Work({ onOpen }) {
   const { PROJECTS, UI } = useContent();
   return (
-    <section className="work section" id="work" data-tone="dark">
+    <section className="work section" id="work" data-tone="light">
       <div className="wrap">
         <header className="section-head split reveal">
           <div>

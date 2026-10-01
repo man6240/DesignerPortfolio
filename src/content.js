@@ -62,7 +62,7 @@ export const UI = {
       { id: 'work', label: T('Work', 'Proyectos') },
       { id: 'social', label: T('Social', 'Redes') },
       { id: 'video', label: T('Video', 'Vídeo') },
-      { id: 'services', label: T('Services', 'Servicios') },
+      { id: 'experience', label: T('Experience', 'Experiencia') },
       { id: 'reviews', label: T('Reviews', 'Reseñas') },
       { id: 'about', label: T('About', 'Sobre mí') },
     ],
@@ -119,8 +119,8 @@ export const UI = {
       'Trailers, gameplay reels and event videos: edit, colour, titles and sound, delivered for YouTube, Reels and the big screen.',
       'Tráilers, gameplay y vídeos de eventos: montaje, color, rótulos y sonido, listos para YouTube, Reels y la pantalla grande.',
     ),
-    reel: T('Flag Fiesta: gameplay reel', 'Flag Fiesta: vídeo de gameplay'),
-    reelNote: T('Edited for the Google Play listing and social media.', 'Montado para la ficha de Google Play y las redes.'),
+    reel: T('Flag Fiesta: launch film', 'Flag Fiesta: tráiler de lanzamiento'),
+    reelNote: T('A 30-second vertical cut for the Google Play launch, Reels and Shorts. Tap the speaker for sound.', 'Un corte vertical de 30 segundos para el lanzamiento en Google Play, Reels y Shorts. Toca el altavoz para oírlo.'),
     channel: T('More on YouTube', 'Más en YouTube'),
     channelNote: T('Trailers and shorts on the Flag Fiesta channel.', 'Tráilers y shorts en el canal de Flag Fiesta.'),
     play: T('Play video', 'Reproducir vídeo'),
@@ -139,9 +139,7 @@ export const UI = {
     visit: T('Visit', 'Visitar'),
   },
   story: {
-    label: T('Services, experience, reviews, about and contact', 'Servicios, experiencia, reseñas, sobre mí y contacto'),
-    services: T('What I do', 'Qué hago'),
-    toolkit: T('Toolkit', 'Herramientas'),
+    label: T('Experience, reviews, about and contact', 'Experiencia, reseñas, sobre mí y contacto'),
     experience: T('Experience', 'Experiencia'),
     expTitle: T('Clients, studios and shipped work.', 'Clientes, estudios y trabajo publicado.'),
     reviews: T('Client reviews', 'Reseñas de clientes'),
@@ -317,51 +315,6 @@ export const STATS = [
   { value: '4', label: T('Disciplines', 'Disciplinas') },
   { value: '2', label: T('Languages, EN · ES', 'Idiomas, ES · EN') },
 ];
-
-export const SERVICES = [
-  {
-    key: 'social',
-    title: T('Social media.', 'Redes sociales.'),
-    body: T(
-      'Campaigns, not one-off posts: one idea per event, adapted to feed, stories, the screens in the room and print, so people recognise it everywhere they meet it.',
-      'Campañas, no publicaciones sueltas: una idea por evento, adaptada al feed, a las historias, a las pantallas de la sala y a la impresión, para que se reconozca en todas partes.',
-    ),
-    tools: 'Canva, Photoshop, Illustrator',
-    tags: [T('Feed and stories', 'Feed e historias'), T('Event campaigns', 'Campañas de eventos'), T('Brand kit', 'Kit de marca')],
-  },
-  {
-    key: 'print',
-    title: T('Advertising and print.', 'Publicidad e impresión.'),
-    body: T(
-      'Bulletins, posters, flyers, envelopes and banners, laid out for the printer: bleed, colour and type that reads at arm’s length.',
-      'Boletines, carteles, flyers, sobres y lonas, maquetados para imprenta: sangrado, color y una tipografía que se lee a un brazo de distancia.',
-    ),
-    tools: 'InDesign, Illustrator, Canva',
-    tags: [T('Layout', 'Maquetación'), T('Typography', 'Tipografía'), T('Print-ready', 'Listo para imprenta')],
-  },
-  {
-    key: 'web',
-    title: T('Web design.', 'Diseño web.'),
-    body: T(
-      'Sites and interfaces that are clear on a phone first: structure, typography, motion and the build, from a one-page site to a product prototype.',
-      'Webs e interfaces claras primero en el móvil: estructura, tipografía, movimiento y el montaje, desde una web de una página hasta el prototipo de un producto.',
-    ),
-    tools: 'Figma, HTML/CSS, React',
-    tags: [T('Mobile first', 'Primero el móvil'), T('UI and UX', 'UI y UX'), T('Fast and accessible', 'Rápida y accesible')],
-  },
-  {
-    key: 'video',
-    title: T('Photo and video editing.', 'Edición de foto y vídeo.'),
-    body: T(
-      'Retouching, colour and cut-outs for photos; trailers, reels and event videos with titles and sound, exported for every platform.',
-      'Retoque, color y recortes para fotos; tráilers, reels y vídeos de eventos con rótulos y sonido, exportados para cada plataforma.',
-    ),
-    tools: 'Premiere Pro, DaVinci Resolve, Photoshop',
-    tags: [T('Colour', 'Color'), T('Titles', 'Rótulos'), T('Reels and YouTube', 'Reels y YouTube')],
-  },
-];
-
-export const TOOLS = ['Photoshop', 'Illustrator', 'InDesign', 'Canva', 'Figma', 'Premiere Pro', 'DaVinci Resolve', 'Blender'];
 
 export const EXPERIENCE = [
   {

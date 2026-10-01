@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Glass } from '../glass/LiquidGlass.jsx';
 import { Star, Mail, Copy, Check, ArrowUpRight, WhatsApp } from './Icons.jsx';
 import { useContent } from '../i18n.jsx';
-import bulletin from '../assets/design/gracia-boletin-1.webp';
 import ryanHome from '../assets/design/ryan-1.webp';
-import ryanLetters from '../assets/design/ryan-3.webp';
 import amigo from '../assets/design/post-amigo.webp';
 
 /* The second half of the page as one scroll-driven story.
@@ -50,63 +48,7 @@ function Pop({ s = 0, as: Tag = 'div', className = '', style, children, ...rest 
   return <Tag className={`pop ${className}`} style={{ ...style, '--s': s }} {...rest}>{children}</Tag>;
 }
 
-/* A thin callout line with a dot at the subject end and a pill label. */
-function Callout({ s, x, y, dx = 90, dy = -50, children }) {
-  const left = dx < 0;
-  return (
-    <Pop s={s} className={`callout ${left ? 'to-l' : 'to-r'}`} style={{ left: `${x}%`, top: `${y}%`, '--dx': `${dx}px`, '--dy': `${dy}px` }}>
-      <i className="callout-dot" />
-      <svg className="callout-line" width={Math.abs(dx)} height={Math.abs(dy) || 1} style={{ [left ? 'right' : 'left']: 0, [dy < 0 ? 'bottom' : 'top']: 0 }} aria-hidden="true">
-        <path pathLength="1" d={
-          (left ? `M${Math.abs(dx)} ` : 'M0 ') + (dy < 0 ? Math.abs(dy) : 0) + ' C ' +
-          `${Math.abs(dx) / 2} ${dy < 0 ? Math.abs(dy) : 0} ${Math.abs(dx) / 2} ${dy < 0 ? 0 : Math.abs(dy)} ` +
-          (left ? '0 ' : `${Math.abs(dx)} `) + (dy < 0 ? 0 : Math.abs(dy))
-        } />
-      </svg>
-      <span className="callout-pill">{children}</span>
-    </Pop>
-  );
-}
-
 /* ---- graphics ---- */
-const pt = (p) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
-
-/* A layout grid drawing itself over the page: twelve columns, margins and a baseline grid. */
-function LayoutGrid() {
-  const W = 1600, H = 900, m = 120, g = 24, cols = 12;
-  const cw = (W - 2 * m - g * (cols - 1)) / cols;
-  const seg = [];
-  for (let c = 0; c < cols; c++) {
-    const x = m + c * (cw + g);
-    seg.push(`M${x.toFixed(1)} 0 V${H}`, `M${(x + cw).toFixed(1)} 0 V${H}`);
-  }
-  for (let y = 40; y < H; y += 40) seg.push(`M0 ${y} H${W}`);
-  return (
-    <svg className="mesh" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path d={seg.join(' ')} />
-    </svg>
-  );
-}
-
-/* An edit timeline: three tracks of clips that pop in, and a playhead sweeping across. */
-const CLIPS = [
-  [0, 10, 120], [0, 140, 210], [0, 360, 90], [0, 460, 260], [0, 730, 170],
-  [1, 60, 300], [1, 380, 140], [1, 540, 330],
-  [2, 0, 420], [2, 430, 470],
-];
-function Timeline() {
-  const top = [70, 150, 230];
-  return (
-    <svg className="timeline" viewBox="0 0 920 320" aria-hidden="true">
-      {[0, 1, 2].map((t) => <path key={t} className="tl-track draw" pathLength="1" d={`M0 ${top[t] + 28} H920`} style={{ '--s': 0.04 + t * 0.03 }} />)}
-      {CLIPS.map(([t, x, w], k) => (
-        <rect key={k} className={`tl-clip pop t${t}`} x={x} y={top[t]} width={w} height="56" rx="10" style={{ '--s': (0.1 + k * 0.03).toFixed(3) }} />
-      ))}
-      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((k) => <text key={k} className="tl-tc pop" x={k * 92 + 4} y="40" style={{ '--s': 0.06 }}>{`00:${String(k * 3).padStart(2, '0')}`}</text>)}
-      <g className="tl-head"><path d="M0 50 V300" /><path d="M-9 50 h18 l-9 12z" /></g>
-    </svg>
-  );
-}
 
 /* Where the story has been: a dotted map with the moves drawn as arcs. */
 const PLACES = [
@@ -137,92 +79,6 @@ function Journey({ names }) {
 }
 
 /* ---- the chapters ---- */
-
-function Kicker({ c, n }) {
-  return <Pop s={0} as="p" className="ch-kicker">{c.UI.story.services} · {String(n).padStart(2, '0')} / {String(c.SERVICES.length).padStart(2, '0')}</Pop>;
-}
-function ServiceCopy({ c, n, step = 0.008 }) {
-  const d = c.SERVICES[n - 1];
-  return (
-    <div className="ch-copy">
-      <Kicker c={c} n={n} />
-      <Letters text={d.title} className="ch-title" s={0.02} step={step} />
-      <Pop s={0.18} as="p" className="ch-body">{d.body}</Pop>
-      <Pop s={0.24} as="p" className="ch-tools">{d.tools}</Pop>
-    </div>
-  );
-}
-
-function ChapterSocial({ c }) {
-  const posts = c.SOCIAL.map((s) => s.src);
-  const d = c.SERVICES[0];
-  return (
-    <>
-      <div className="ch-bg strips feed">
-        {[0, 1].map((r) => (
-          <div key={r} className={`strip r${r}`}>
-            {[...(r ? [...posts].reverse() : posts), ...posts].map((src, k) => <img key={k} src={src} alt="" loading="lazy" decoding="async" />)}
-          </div>
-        ))}
-      </div>
-      <div className="ch-shade left" />
-      <ServiceCopy c={c} n={1} step={0.012} />
-      <Callout s={0.5} x={70} y={30} dx={80} dy={-40}>{d.tags[0]}</Callout>
-      <Callout s={0.56} x={80} y={56} dx={60} dy={36}>{d.tags[1]}</Callout>
-      <Callout s={0.62} x={62} y={74} dx={-80} dy={30}>{d.tags[2]}</Callout>
-    </>
-  );
-}
-
-function ChapterPrint({ c }) {
-  const d = c.SERVICES[1];
-  return (
-    <>
-      <div className="ch-bg zoom print-bg"><img src={bulletin} alt="" loading="lazy" decoding="async" /></div>
-      <div className="ch-shade left" />
-      <ServiceCopy c={c} n={2} />
-      <Callout s={0.5} x={75} y={26} dx={80} dy={-36}>{d.tags[0]}</Callout>
-      <Callout s={0.56} x={74} y={46} dx={90} dy={30}>{d.tags[1]}</Callout>
-      <Callout s={0.62} x={70} y={86} dx={-90} dy={-30}>{d.tags[2]}</Callout>
-    </>
-  );
-}
-
-function ChapterWeb({ c }) {
-  const d = c.SERVICES[2];
-  return (
-    <>
-      <div className="ch-bg zoom scan">
-        <img className="shaded" src={ryanLetters} alt="" loading="lazy" decoding="async" />
-        <LayoutGrid />
-      </div>
-      <div className="ch-shade left" />
-      <ServiceCopy c={c} n={3} step={0.012} />
-      <Callout s={0.52} x={70} y={28} dx={80} dy={-36}>{d.tags[0]}</Callout>
-      <Callout s={0.58} x={78} y={52} dx={70} dy={30}>{d.tags[1]}</Callout>
-      <Callout s={0.64} x={62} y={72} dx={-80} dy={32}>{d.tags[2]}</Callout>
-    </>
-  );
-}
-
-function ChapterVideo({ c }) {
-  const d = c.SERVICES[3];
-  return (
-    <>
-      <div className="ch-bg edit-bg" />
-      <div className="art tl-art"><Timeline /></div>
-      <div className="ch-copy">
-        <Kicker c={c} n={4} />
-        <Letters text={d.title} className="ch-title" s={0.02} step={0.008} />
-        <Pop s={0.2} as="p" className="ch-body">{d.body}</Pop>
-        <Pop s={0.3} as="p" className="ch-kicker small">{c.UI.story.toolkit}</Pop>
-        <ul className="ch-chips">
-          {c.TOOLS.map((t, i) => <Pop key={t} as="li" s={0.33 + i * 0.03}>{t}</Pop>)}
-        </ul>
-      </div>
-    </>
-  );
-}
 
 function ChapterExperience({ c }) {
   const strip = [...c.PROJECTS.flatMap((p) => p.shots.slice(0, 2)), ...c.SOCIAL.map((s) => s.src)];
@@ -356,10 +212,6 @@ function ChapterContact({ c }) {
 }
 
 const CHAPTERS = [
-  { key: 'social', C: ChapterSocial, anchor: 'services' },
-  { key: 'print', C: ChapterPrint },
-  { key: 'web', C: ChapterWeb },
-  { key: 'video', C: ChapterVideo },
   { key: 'experience', C: ChapterExperience, anchor: 'experience' },
   { key: 'reviews', C: ChapterReviews, anchor: 'reviews' },
   { key: 'about', C: ChapterAbout, anchor: 'about' },
