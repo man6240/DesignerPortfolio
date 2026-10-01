@@ -37,7 +37,8 @@ export function LangProvider({ initial, children }) {
     document.documentElement.lang = next;
     document.title = c.UI.meta.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', c.UI.meta.description);
-    history.replaceState(null, '', pathFor(next) + location.hash);
+    // the preview build (relative base) lives at an address it doesn't own, so it only swaps the text
+    if (import.meta.env.BASE_URL === '/') history.replaceState(null, '', pathFor(next) + location.hash);
   }, [lang]);
 
   // Back/forward between the two addresses

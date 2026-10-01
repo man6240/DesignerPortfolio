@@ -53,8 +53,8 @@ export default function Video() {
             <div className="reel-stage">
               <div className="reel-phone">
                 <video ref={vid} muted loop playsInline preload="none" poster={poster} controls aria-label={UI.video.reel}>
-                  <source src="/hero/flag-fiesta.mp4" type="video/mp4" />
-                  <source src="/hero/flag-fiesta.webm" type="video/webm" />
+                  <source src={`${import.meta.env.BASE_URL}hero/flag-fiesta.mp4`} type="video/mp4" />
+                  <source src={`${import.meta.env.BASE_URL}hero/flag-fiesta.webm`} type="video/webm" />
                 </video>
               </div>
             </div>

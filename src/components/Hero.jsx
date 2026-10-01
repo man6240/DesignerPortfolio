@@ -12,8 +12,8 @@ const HOLD = 5200; // each screen stays this long; the phone changes halfway bet
 function Screens({ slides, now, video }) {
   return slides.map((s, k) => (s.video
     ? <video key={k} ref={video} className={k === now ? 'on' : ''} muted loop playsInline autoPlay preload="metadata" aria-hidden="true">
-        <source src="/hero/flag-fiesta.mp4" type="video/mp4" />
-        <source src="/hero/flag-fiesta.webm" type="video/webm" />
+        <source src={`${import.meta.env.BASE_URL}hero/flag-fiesta.mp4`} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}hero/flag-fiesta.webm`} type="video/webm" />
       </video>
     : <img key={k} className={k === now ? 'on' : ''} src={s.src} alt="" decoding="async" fetchpriority={k === 0 ? 'high' : 'low'} loading={k === 0 ? 'eager' : 'lazy'} />));
 }
@@ -103,7 +103,7 @@ export default function Hero({ onOpen }) {
           <button className="hx-device hx-phone" onClick={() => show(ph)} aria-label={`${ph.label}. ${UI.hero.openOn}`}>
             <span className="hx-settle">
               <span className="hx-pscreen"><Screens slides={PHONE} now={p} video={video} /></span>
-              {FRAMES.map((f) => <img key={f} className={`hx-frame ${f === ph.frame ? 'on' : ''}`} src={`/hero/iphone-17-pro-${f}.webp`} alt="" decoding="async" />)}
+              {FRAMES.map((f) => <img key={f} className={`hx-frame ${f === ph.frame ? 'on' : ''}`} src={`${import.meta.env.BASE_URL}hero/iphone-17-pro-${f}.webp`} alt="" decoding="async" />)}
               <span className="hx-island" />
             </span>
           </button>

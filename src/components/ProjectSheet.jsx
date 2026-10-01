@@ -91,8 +91,8 @@ export default function ProjectSheet({ state, onClose, reduced }) {
         <div ref={viewer} className={`viewer ${tall ? 'tall' : ''}`} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           {media.map((m, k) => (m.video
             ? <video key={k} className={k === i ? 'on' : ''} poster={m.poster} muted loop playsInline preload="metadata" aria-label={`${p.title}, ${L.clip}`} aria-hidden={k !== i}>
-                <source src={`/hero/${m.video}.mp4`} type="video/mp4" />
-                <source src={`/hero/${m.video}.webm`} type="video/webm" />
+                <source src={`${import.meta.env.BASE_URL}hero/${m.video}.mp4`} type="video/mp4" />
+                <source src={`${import.meta.env.BASE_URL}hero/${m.video}.webm`} type="video/webm" />
               </video>
             : <img key={k} src={m.src} className={k === i ? 'on' : ''} alt={k === i ? `${p.title}, ${L.image.toLowerCase()} ${k + 1} ${L.of} ${n}` : ''} aria-hidden={k !== i} decoding="async" />))}
           <Glass as="button" variant="clear" className="icon-btn sheet-close" onClick={close} aria-label={L.close} ref={closeRef}>
