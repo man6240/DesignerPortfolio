@@ -311,3 +311,6 @@
   :is(.story[data-mode='flow'], .story[data-mode='still']) .ch-about .art { flex: 1 1 48%; order: 2; margin: 0; opacity: 1; aspect-ratio: 2 / 1; }
 }
 
+
+/* the nav anchors inside the story never stretch the page past its end */
+.story { overflow: clip; }

@@ -10,6 +10,9 @@ import { langFromPath } from './i18n.jsx';
 import './styles.css';
 import './design.css';
 
+// index.html sets this before first paint; set it here too so any page that loads the bundle
+// (the preview build, an embed) gets the same layout as the live site.
+document.documentElement.classList.add('js');
 const lang = langFromPath(location.pathname);
 const root = document.getElementById('root');
 // The production build ships prerendered HTML (scripts/prerender.mjs); pick it up instead of re-rendering.
