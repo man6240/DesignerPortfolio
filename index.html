@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>__TITLE__</title>
+  <meta name="description" content="__DESCRIPTION__" />
+  <meta name="author" content="Rafael Vitriago" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="__URL__" />
+  <link rel="alternate" hreflang="en" href="https://www.rafaelvitriago.eu/" />
+  <link rel="alternate" hreflang="es" href="https://www.rafaelvitriago.eu/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.rafaelvitriago.eu/" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png" />
+  <link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Link previews (LinkedIn, WhatsApp, Discord, X, Slack…) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rafael Vitriago" />
+  <meta property="og:url" content="__URL__" />
+  <meta property="og:title" content="__TITLE__" />
+  <meta property="og:description" content="__DESCRIPTION__" />
+  <meta property="og:image" content="https://www.rafaelvitriago.eu/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="__LOCALE__" />
+  <meta property="og:locale:alternate" content="__ALT_LOCALE__" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="__TITLE__" />
+  <meta name="twitter:description" content="__DESCRIPTION__" />
+  <meta name="twitter:image" content="https://www.rafaelvitriago.eu/og.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.rafaelvitriago.eu/#person",
+        "name": "Rafael Vitriago",
+        "alternateName": "Rafael Alejandro Vitriago Rivero",
+        "url": "https://www.rafaelvitriago.eu/",
+        "image": "https://www.rafaelvitriago.eu/og.jpg",
+        "jobTitle": "Graphic Designer",
+        "email": "mailto:rafaelrivero6240@gmail.com",
+        "telephone": "+34685028161",
+        "address": { "@type": "PostalAddress", "addressLocality": "Jaén", "addressCountry": "ES" },
+        "knowsLanguage": ["en", "es"],
+        "knowsAbout": ["Graphic design", "Social media design", "Advertising", "Print design", "Web design", "UI design", "Photo editing", "Video editing"],
+        "sameAs": [
+          "https://www.linkedin.com/in/rafael-alejandro-vitriago-rivero-1987a914a",
+          "https://www.behance.net/rafaelvitriago",
+          "https://www.upwork.com/freelancers/~012e7d933c7d25c023",
+          "https://rafavitriago.eu/"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.rafaelvitriago.eu/#service",
+        "name": "Rafael Vitriago — Graphic Design",
+        "url": "https://www.rafaelvitriago.eu/",
+        "image": "https://www.rafaelvitriago.eu/og.jpg",
+        "founder": { "@id": "https://www.rafaelvitriago.eu/#person" },
+        "areaServed": "Worldwide",
+        "address": { "@type": "PostalAddress", "addressLocality": "Jaén", "addressCountry": "ES" },
+        "serviceType": ["Social media design", "Advertising and print design", "Web design", "Photo and video editing"]
+      }
+    ]
+  }
+  </script>
+
+  <!-- A visitor who chose Spanish before and lands on / goes back to /es/ (and vice versa) -->
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      var l = localStorage.getItem('lang'), es = /^\/es(\/|$)/.test(location.pathname);
+      if (l === 'es' && !es) location.replace('/es/' + location.hash);
+      else if (l === 'en' && es) location.replace('/' + location.hash);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="root"><!--app-html--></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

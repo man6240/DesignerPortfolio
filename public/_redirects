@@ -1,0 +1,4 @@
+# The old site used /en/ and /es/; English now lives at the root.
+/en /  301
+/en/ /  301
+/en/* /  301
