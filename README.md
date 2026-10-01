@@ -23,8 +23,7 @@ their cues from the TipApp prototype; the web scene borrows the Ryan Family site
    `split` / `stack` (the game scenes). Clicking opens the gallery (`ProjectSheet.jsx`).
 3. **Social** (`Social.jsx`): a draggable rail of posts (`SOCIAL`).
 4. **Titan** (`Titan.jsx`): "Design / Diseño" from edge to edge with three pieces floating in front.
-5. **Video** (`Video.jsx`): the Flag Fiesta launch film (`public/video/`) and the YouTube channel. Add video IDs to `VIDEO.youtube`
-   and each becomes a card that loads YouTube only when clicked.
+5. **Video** (`Video.jsx`): the Flag Fiesta launch film (`public/video/`) and the YouTube channel.
 6. **Story** (`Story.jsx`): pinned chapters — experience, reviews, about, contact.
 
 ## Edit content

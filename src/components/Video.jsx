@@ -1,30 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useContent } from '../i18n.jsx';
 import { ArrowUpRight } from './Icons.jsx';
 import poster from '../assets/design/launch-poster.jpg';
 
 /* Video editing: the Flag Fiesta launch film plays in a phone-shaped frame while it's on screen, next to
-   the YouTube channel. Any IDs listed in VIDEO.youtube appear as cards that only load YouTube
-   when clicked. */
-function YouTubeCard({ v, label }) {
-  const [on, setOn] = useState(false);
-  return (
-    <figure className="yt reveal">
-      <div className="yt-frame">
-        {on ? (
-          <iframe src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`} title={v.title} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen />
-        ) : (
-          <button className="yt-cover" onClick={() => setOn(true)} aria-label={`${label}: ${v.title}`}>
-            <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }} />
-            <span className="yt-play" aria-hidden="true" />
-          </button>
-        )}
-      </div>
-      <figcaption><a href={`https://www.youtube.com/shorts/${v.id}`} target="_blank" rel="noopener">{v.title} ↗</a></figcaption>
-    </figure>
-  );
-}
-
+   the YouTube channel. */
 export default function Video() {
   const { VIDEO, UI } = useContent();
   const vid = useRef(null);
@@ -71,11 +51,6 @@ export default function Video() {
           </a>
         </div>
 
-        {VIDEO.youtube.length > 0 && (
-          <div className="yt-grid shorts">
-            {VIDEO.youtube.map((v) => <YouTubeCard key={v.id} v={v} label={UI.video.play} />)}
-          </div>
-        )}
       </div>
     </section>
   );

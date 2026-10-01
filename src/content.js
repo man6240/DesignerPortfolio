@@ -14,8 +14,6 @@
 //
 // SOCIAL — the social media rail, images in src/assets/design/. `ratio` overrides the default 16:9 card.
 //
-// VIDEOS — YouTube IDs (the part after watch?v=) from the channel. Each one becomes a card
-// that loads the player only when clicked.
 
 export const T = (en, es) => ({ __t: true, en, es });
 
@@ -121,7 +119,6 @@ export const UI = {
     reelNote: T('A 30-second vertical cut for the Google Play launch, Reels and Shorts. Tap the speaker for sound.', 'Un corte vertical de 30 segundos para el lanzamiento en Google Play, Reels y Shorts. Toca el altavoz para oírlo.'),
     channel: T('More on YouTube', 'Más en YouTube'),
     channelNote: T('Trailers and shorts on the Flag Fiesta channel.', 'Tráilers y shorts en el canal de Flag Fiesta.'),
-    play: T('Play video', 'Reproducir vídeo'),
   },
   sheet: {
     close: T('Close', 'Cerrar'),
@@ -282,13 +279,6 @@ export const SOCIAL = [
 
 export const VIDEO = {
   channel: 'https://www.youtube.com/@FlagFiestaGame',
-  // YouTube Shorts from the channel: the ID is the part after /shorts/. Each card loads YouTube only when clicked.
-  youtube: [
-    { id: 'vchzq_PEbFw', title: T('Flag Fiesta · Short 1', 'Flag Fiesta · Short 1') },
-    { id: 'zc_CBRlsoTg', title: T('Flag Fiesta · Short 2', 'Flag Fiesta · Short 2') },
-    { id: 'uRi2bknQWWI', title: T('Flag Fiesta · Short 3', 'Flag Fiesta · Short 3') },
-    { id: 'P3aVWynpTPU', title: T('Flag Fiesta · Short 4', 'Flag Fiesta · Short 4') },
-  ],
 };
 
 // Hero: the display and the phone each rotate through work, offset so only one changes at a time.
